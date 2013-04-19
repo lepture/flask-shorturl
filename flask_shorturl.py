@@ -104,6 +104,7 @@ class ShortUrl(object):
         if self.app is not None:
             return self.app
 
+        from flask import _app_ctx_stack
         ctx = _app_ctx_stack.top
         if ctx is not None:
             return ctx.app
