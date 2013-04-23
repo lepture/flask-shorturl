@@ -14,10 +14,7 @@ class UrlEncoder(object):
     Link: http://code.activestate.com/recipes/576918/ (r3)
     """
 
-    def __init__(self, alphabet=None, block_size=24):
-        if alphabet is None:
-            alphabet = DEFAULT_ALPHABET
-
+    def __init__(self, alphabet, block_size=24):
         self.alphabet = alphabet
         self.block_size = block_size
         self.mask = (1 << block_size) - 1
