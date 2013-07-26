@@ -18,7 +18,7 @@ class UrlEncoder(object):
         self.alphabet = alphabet
         self.block_size = block_size
         self.mask = (1 << block_size) - 1
-        self.mapping = range(block_size)
+        self.mapping = list(range(block_size))
         self.mapping.reverse()
 
     def encode_url(self, n, min_length=MIN_LENGTH):
@@ -55,8 +55,8 @@ class UrlEncoder(object):
     def _enbase(self, x):
         n = len(self.alphabet)
         if x < n:
-            return self.alphabet[x]
-        return self._enbase(x / n) + self.alphabet[x % n]
+            return self.alphabet[int(x)]
+        return self._enbase(int(x / n)) + self.alphabet[int(x % n)]
 
     def debase(self, x):
         n = len(self.alphabet)
