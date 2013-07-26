@@ -141,6 +141,7 @@ class ShortUrl(object):
 
         ::
 
+            >>> su = ShortUrl()
             >>> su.encode_url(12)
         """
         app = self.get_app()
@@ -153,6 +154,7 @@ class ShortUrl(object):
 
         ::
 
+            >>> su = ShortUrl()
             >>> su.decode_url('zkf2n')
         """
         return self.encoder.decode_url(n)
