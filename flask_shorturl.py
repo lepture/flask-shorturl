@@ -1,5 +1,7 @@
 # coding: utf-8
 
+from werkzeug.routing import BaseConverter, ValidationError
+
 DEFAULT_ALPHABET = 'mn6j2c4rv8bpygw95z7hsdaetxuk3fq'
 MIN_LENGTH = 5
 
@@ -66,6 +68,28 @@ class UrlEncoder(object):
         return result
 
 
+def ShortUrlConverter_factory(su):  # noqa
+    class ShortUrlConverter(BaseConverter):
+        """
+        ShortUrl converter for the Werkzeug routing system.
+        """
+
+        def __init__(self, map):
+            super(ShortUrlConverter, self).__init__(map)
+            self._su = su
+
+        def to_python(self, value):
+            try:
+                return self._su.decode_url(value)
+            except ValueError:
+                raise ValidationError()
+
+        def to_url(self, value):
+            return self._su.encode_url(value)
+
+    return ShortUrlConverter
+
+
 class ShortUrl(object):
     """
     ShortUrl Interface.
@@ -96,6 +120,7 @@ class ShortUrl(object):
         self.app = app
         app.extensions = getattr(app, 'extensions', {})
         app.extensions['short_url'] = self
+        app.url_map.converters['short_url'] = ShortUrlConverter_factory(self)
 
     def get_app(self):
         if self.app is not None:
