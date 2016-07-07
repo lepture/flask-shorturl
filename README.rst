@@ -1,10 +1,21 @@
 Flask-ShortUrl
 ==================================
 
-.. image:: https://travis-ci.org/lepture/flask-shorturl.png?branch=master
-        :target: https://travis-ci.org/lepture/flask-shorturl
-.. image:: https://coveralls.io/repos/lepture/flask-shorturl/badge.png?branch=master
-        :target: https://coveralls.io/r/lepture/flask-shorturl
+.. image:: https://img.shields.io/badge/donate-lepture-green.svg
+   :target: https://lepture.herokuapp.com/?amount=500&reason=lepture%2Fflask-shorturl
+   :alt: Donate lepture
+.. image:: https://img.shields.io/pypi/wheel/flask-shorturl.svg
+   :target: https://pypi.python.org/pypi/flask-shorturl/
+   :alt: Wheel Status
+.. image:: https://img.shields.io/pypi/v/flask-shorturl.svg
+   :target: https://pypi.python.org/pypi/flask-shorturl/
+   :alt: Latest Version
+.. image:: https://travis-ci.org/lepture/flask-shorturl.svg?branch=master
+   :target: https://travis-ci.org/lepture/flask-shorturl
+   :alt: Travis CI Status
+.. image:: https://coveralls.io/repos/lepture/flask-shorturl/badge.svg?branch=master
+   :target: https://coveralls.io/r/lepture/flask-shorturl
+   :alt: Coverage Status
 
 
 Short URL generator for Flask Project.
